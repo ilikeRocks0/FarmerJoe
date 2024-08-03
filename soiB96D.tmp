@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://bb7dngtyrebp0"]
+
+[ext_resource type="Texture2D" uid="uid://0kbwuy21vkan" path="res://plots/plot_grass.png" id="1_fofen"]
+[ext_resource type="Texture2D" uid="uid://bmqqno5mxhm62" path="res://plots/plot_plowed_ready.png" id="1_ilfcp"]
+[ext_resource type="Texture2D" uid="uid://cjqvwc6taj2fw" path="res://plots/plot_plowed.png" id="3_jd8jv"]
+[ext_resource type="Texture2D" uid="uid://bb5cpmqef7re7" path="res://plots/plot_plowed_not_ready.png" id="4_sdgrm"]
+[ext_resource type="Texture2D" uid="uid://37fjabwkjqe8" path="res://plots/plot_plowed_sapling.png" id="6_5i2kk"]
+[ext_resource type="Texture2D" uid="uid://x6kpjuc4n1kv" path="res://plots/plot_plowed_seeded.png" id="6_pnkbl"]
+[ext_resource type="Texture2D" uid="uid://6dg6m0ijhv4a" path="res://plots/plot_plowed_watered.png" id="7_broiu"]
+[ext_resource type="Texture2D" uid="uid://cpxg20cd2qjux" path="res://plots/plot_plowed_watered_not_ready.png" id="8_1f4n2"]
+[ext_resource type="Texture2D" uid="uid://bya5kufx4fs5o" path="res://plots/plot_plowed_watered_sapling.png" id="9_oxqos"]
+[ext_resource type="Texture2D" uid="uid://x2n74gcl3n7v" path="res://plots/plot_plowed_watered_seeded.png" id="10_gpc3e"]
+
+[sub_resource type="GDScript" id="GDScript_d3ckt"]
+script/source = "extends Node2D
+
+enum plotState{
+	plotGrass,
+	plotPlowed,
+	plotPlowedNotReady,
+	plotPlowedReady,
+	plotPlowedSapling,
+	plotPlowedSeeded,
+	plotPlowedWatered,
+	plotPlowedWateredNotReady,
+	plotPlowedWateredSapling,
+	plotPlowedWateredSeeded
+}
+
+
+@export
+var plot_grass: CompressedTexture2D
+@export
+var plot_plowed: CompressedTexture2D
+@export
+var plot_plowed_not_ready: CompressedTexture2D
+@export
+var plot_plowed_ready: CompressedTexture2D
+@export
+var plot_plowed_sapling: CompressedTexture2D
+@export
+var plot_plowed_seeded: CompressedTexture2D
+@export
+var plot_plowed_watered: CompressedTexture2D
+@export
+var plot_plowed_watered_not_ready: CompressedTexture2D
+@export
+var plot_plowed_watered_sapling: CompressedTexture2D
+@export
+var plot_plowed_watered_seeded: CompressedTexture2D
+
+var current_state: plotState = plotState.plotGrass
+
+@onready
+var picture = $picture
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func plow():
+	pass
+	
+func water():
+	pass
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	match current_state:
+		plotState.plotGrass:
+			picture.texture = plot_plowed_watered_seeded
+			
+
+
+"
+
+[node name="Soil" type="Node2D"]
+script = SubResource("GDScript_d3ckt")
+plot_grass = ExtResource("1_fofen")
+plot_plowed = ExtResource("3_jd8jv")
+plot_plowed_not_ready = ExtResource("4_sdgrm")
+plot_plowed_ready = ExtResource("1_ilfcp")
+plot_plowed_sapling = ExtResource("6_5i2kk")
+plot_plowed_seeded = ExtResource("6_pnkbl")
+plot_plowed_watered = ExtResource("7_broiu")
+plot_plowed_watered_not_ready = ExtResource("8_1f4n2")
+plot_plowed_watered_sapling = ExtResource("9_oxqos")
+plot_plowed_watered_seeded = ExtResource("10_gpc3e")
+
+[node name="picture" type="Sprite2D" parent="."]
+texture = ExtResource("1_fofen")

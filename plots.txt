@@ -1,0 +1,10 @@
+1. not plowed
+2. plowed
+3. plowed watered
+4. plowed seeds 
+5. plowed watered seeds
+6. plowed sapling
+7. plowed watered sapling
+8. plowed notready
+9. plowed watered notready
+10. plowed ready
