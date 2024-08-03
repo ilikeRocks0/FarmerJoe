@@ -1,17 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwfdlqwusse7m"]
+[gd_scene load_steps=5 format=3 uid="uid://cwfdlqwusse7m"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_c0fsj"]
 [ext_resource type="Texture2D" uid="uid://cjmsq8xr764tt" path="res://icon.svg" id="1_u6dg6"]
+[ext_resource type="Script" path="res://DetectPlots.gd" id="2_di3ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25t0e"]
-size = Vector2(129, 129)
+size = Vector2(128, 128)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_c0fsj")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DetectPlots" type="Area2D" parent="."]
+script = ExtResource("2_di3ey")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("1_u6dg6")
+[node name="DetectPlotRange" type="CollisionShape2D" parent="DetectPlots"]
+shape = SubResource("RectangleShape2D_25t0e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_25t0e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u6dg6")
