@@ -21,3 +21,6 @@ shape = SubResource("RectangleShape2D_25t0e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_u6dg6")
+
+[connection signal="area_entered" from="DetectPlots" to="DetectPlots" method="_on_area_entered"]
+[connection signal="area_exited" from="DetectPlots" to="DetectPlots" method="_on_area_exited"]
