@@ -1,11 +1,12 @@
 extends Soil_State
 
+@export
+var plot_plowed_seeded: Soil_State
+@export
+var plot_plowed_watered: Soil_State
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func water():
+	return plot_plowed_watered
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func soil():
+	return plot_plowed_seeded
