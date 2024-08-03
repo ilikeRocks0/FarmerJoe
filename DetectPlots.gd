@@ -23,7 +23,6 @@ func _on_area_exited(area):
 	connected_soil.erase(area)
 	pass # Replace with function body.
 
-func _unhandled_key_input(event):
-	if event.keycode == KEY_0:
-		for i in connected_soil:
-			print(i)
+func plow_soil():
+	for soil in connected_soil:
+		soil.plow()
