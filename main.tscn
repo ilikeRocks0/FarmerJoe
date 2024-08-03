@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://igjfi5fh87se"]
+[gd_scene load_steps=7 format=3 uid="uid://igjfi5fh87se"]
 
 [ext_resource type="TileSet" uid="uid://uja8d24xke2" path="res://ground.tres" id="1_6sm1e"]
 [ext_resource type="PackedScene" uid="uid://cwfdlqwusse7m" path="res://player.tscn" id="1_r5yxl"]
 [ext_resource type="PackedScene" uid="uid://bb7dngtyrebp0" path="res://soil.tscn" id="4_qpdmo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8xem"]
+font_size = 50
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_62pco"]
 resource_name = "Soil"
@@ -31,6 +36,16 @@ layer_3/tile_data = PackedInt32Array(524298, 655362, 3, 458757, 655362, 3, 65549
 [node name="Player" parent="." instance=ExtResource("1_r5yxl")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Label" type="Label" parent="Player/Camera2D"]
+offset_left = -568.0
+offset_top = -315.0
+offset_right = -500.0
+offset_bottom = -240.0
+text = "Plow: E
+Water: Q
+Seed: F"
+label_settings = SubResource("LabelSettings_n8xem")
 
 [node name="soilSet" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_kik8v")
