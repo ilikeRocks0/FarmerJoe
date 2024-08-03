@@ -32,3 +32,8 @@ func plow():
 	var new_state = current_state.plow()
 	if new_state:
 		change_state(new_state)
+
+func grow():
+	var new_state = current_state.grow()
+	if new_state:
+		change_state(new_state)

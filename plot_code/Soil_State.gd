@@ -4,13 +4,15 @@ extends Node
 @export
 var picture: CompressedTexture2D
 @export
-var grow_amount: int
+var grow_time: int
 
 var parent: Soil
 
 func enter() -> void:
 	if picture:
 		parent.picture.texture = picture
+	if grow_time > 0:
+		parent.timer.start(grow_time)
 	pass
 
 func exit() -> void:
@@ -23,4 +25,8 @@ func water() -> Soil_State:
 	return null
 	
 func plow()-> Soil_State:
+	return null
+
+
+func grow()-> Soil_State:
 	return null

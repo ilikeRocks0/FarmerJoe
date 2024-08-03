@@ -13,7 +13,6 @@ var state_machine = $state_machine
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state_machine.init(self)
-	pass # Replace with function body.
 
 func _process(delta):
 	state_machine.process_frame(delta)
@@ -23,6 +22,6 @@ func plow():
 	
 func water():
 	state_machine.water()
-	
 
-	
+func _on_timer_timeout():
+	state_machine.grow()

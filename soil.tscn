@@ -26,7 +26,7 @@ script = ExtResource("1_pp7em")
 texture = ExtResource("1_fofen")
 
 [node name="timer" type="Timer" parent="."]
-wait_time = 0.2
+one_shot = true
 
 [node name="state_machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("12_n31cs")
@@ -64,16 +64,19 @@ picture = ExtResource("7_broiu")
 [node name="plotPlowedWateredNotReady" type="Node" parent="state_machine"]
 script = ExtResource("7_0yf42")
 picture = ExtResource("8_1f4n2")
-grow_amount = 5
+grow_time = 5
 
 [node name="plotPlowedWateredSapling" type="Node" parent="state_machine"]
 script = ExtResource("7_0yf42")
 picture = ExtResource("9_oxqos")
-grow_amount = 3
+grow_time = 3
 
 [node name="plotPlowedWateredSeeded" type="Node" parent="state_machine"]
 script = ExtResource("7_0yf42")
 picture = ExtResource("10_gpc3e")
+grow_time = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fi0kt")
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
