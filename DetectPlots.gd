@@ -26,3 +26,11 @@ func _on_area_exited(area):
 func plow_soil():
 	for soil in connected_soil:
 		soil.plow()
+		
+func water_soil():
+	for soil in connected_soil:
+		soil.water()
+	
+func seed_soil():
+	for soil in connected_soil:
+		soil.seed()

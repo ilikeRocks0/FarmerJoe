@@ -33,3 +33,7 @@ func _physics_process(delta):
 func _unhandled_key_input(event):
 	if event.keycode == KEY_E:
 		detect.plow_soil()
+	if event.keycode == KEY_Q:
+		detect.water_soil()
+	if event.keycode == KEY_F:
+		detect.seed_soil()
