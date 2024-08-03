@@ -3,7 +3,7 @@ extends Area2D
 @onready
 var detect = $DetectPlotRange
 
-
+var connected_soil = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -15,10 +15,15 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	print("enter" +  str(area))
+	connected_soil.append(area)
 	pass # Replace with function body.
 
 
 func _on_area_exited(area):
-	print("leaving" +  str(area))
+	connected_soil.erase(area)
 	pass # Replace with function body.
+
+func _unhandled_key_input(event):
+	if event.keycode == KEY_0:
+		for i in connected_soil:
+			print(i)
