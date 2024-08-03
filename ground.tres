@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://uja8d24xke2"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://uja8d24xke2"]
 
 [ext_resource type="Texture2D" uid="uid://crwv07nceh668" path="res://using_tilesets_kenney_abstract_platformer_tile_sheet.webp" id="1_8uyi0"]
+[ext_resource type="PackedScene" uid="uid://bb7dngtyrebp0" path="res://soil.tscn" id="2_krc0m"]
 [ext_resource type="PackedScene" uid="uid://dny45x2rf0bhp" path="res://cpu_particles_2d.tscn" id="2_ssofa"]
 [ext_resource type="Texture2D" uid="uid://bdm6o2n8rplj5" path="res://farm_soil_template.png" id="3_isqov"]
 
@@ -33,6 +34,9 @@ texture_region_size = Vector2i(64, 64)
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0aljc"]
+scenes/1/scene = ExtResource("2_krc0m")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxp4s"]
 texture = ExtResource("1_8uyi0")
@@ -854,3 +858,4 @@ custom_data_layer_0/type = 1
 sources/3 = SubResource("TileSetScenesCollectionSource_op2a5")
 sources/2 = SubResource("TileSetAtlasSource_sxp4s")
 sources/0 = SubResource("TileSetAtlasSource_8vi2a")
+sources/1 = SubResource("TileSetScenesCollectionSource_0aljc")
