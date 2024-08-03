@@ -24,9 +24,11 @@ func process_frame(delta: float) -> Soil_State:
 func water() -> Soil_State:
 	return null
 	
-func plow()-> Soil_State:
+func plow() -> Soil_State:
 	return null
 
+func grow() -> Soil_State:
+	return null
 
-func grow()-> Soil_State:
+func seed() -> Soil_State:
 	return null

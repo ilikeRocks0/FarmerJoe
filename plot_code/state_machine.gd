@@ -33,6 +33,11 @@ func plow():
 	if new_state:
 		change_state(new_state)
 
+func seed():
+	var new_state = current_state.seed()
+	if new_state:
+		change_state(new_state)
+		
 func grow():
 	var new_state = current_state.grow()
 	if new_state:

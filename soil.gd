@@ -23,5 +23,8 @@ func plow():
 func water():
 	state_machine.water()
 
+func seed():
+	state_machine.seed()
+	
 func _on_timer_timeout():
 	state_machine.grow()
