@@ -19,10 +19,10 @@ func _process(delta):
 	state_machine.process_frame(delta)
 	
 func plow():
-	pass
+	state_machine.plow()
 	
 func water():
-	pass
+	state_machine.water()
 	
 
 	
