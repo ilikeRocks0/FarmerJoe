@@ -71,7 +71,7 @@ picture = ExtResource("6_pnkbl")
 
 [node name="plotPlowedWatered" type="Node" parent="state_machine" node_paths=PackedStringArray("plot_plowed_watered_seeded")]
 script = ExtResource("11_obc7a")
-plot_plowed_watered_seeded = NodePath("../plotPlowedSeeded")
+plot_plowed_watered_seeded = NodePath("../plotPlowedWateredSeeded")
 picture = ExtResource("7_broiu")
 
 [node name="plotPlowedWateredNotReady" type="Node" parent="state_machine" node_paths=PackedStringArray("plot_plowed_ready")]

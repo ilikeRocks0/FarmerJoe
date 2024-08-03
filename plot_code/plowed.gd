@@ -8,5 +8,5 @@ var plot_plowed_watered: Soil_State
 func water():
 	return plot_plowed_watered
 
-func soil():
+func seed():
 	return plot_plowed_seeded
