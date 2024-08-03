@@ -19,10 +19,10 @@ wait_time = 0.2
 script = ExtResource("12_n31cs")
 starting_state = NodePath("grass")
 
-[node name="grass" type="Node" parent="state_machine"]
+[node name="grass" type="Node" parent="state_machine" node_paths=PackedStringArray("plot_plowed")]
 script = ExtResource("4_86uxc")
+plot_plowed = NodePath("../plowed")
 picture = ExtResource("1_fofen")
-grow_amount = null
 
 [node name="plowed" type="Node" parent="state_machine"]
 script = ExtResource("5_80d4t")

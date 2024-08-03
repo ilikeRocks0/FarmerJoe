@@ -24,7 +24,11 @@ func process_frame(delta: float):
 		change_state(new_state)
 
 func water():
-	current_state.water()
+	var new_state = current_state.water()
+	if new_state:
+		change_state(new_state)
 
 func plow():
-	current_state.plow()
+	var new_state = current_state.plow()
+	if new_state:
+		change_state(new_state)
