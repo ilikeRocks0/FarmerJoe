@@ -1,10 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb7dngtyrebp0"]
+[gd_scene load_steps=17 format=3 uid="uid://bb7dngtyrebp0"]
 
 [ext_resource type="Texture2D" uid="uid://0kbwuy21vkan" path="res://plots/plot_grass.png" id="1_fofen"]
+[ext_resource type="Texture2D" uid="uid://bmqqno5mxhm62" path="res://plots/plot_plowed_ready.png" id="1_ilfcp"]
 [ext_resource type="Script" path="res://soil.gd" id="1_pp7em"]
 [ext_resource type="Texture2D" uid="uid://cjqvwc6taj2fw" path="res://plots/plot_plowed.png" id="3_jd8jv"]
 [ext_resource type="Script" path="res://plot_code/grass.gd" id="4_86uxc"]
+[ext_resource type="Texture2D" uid="uid://bb5cpmqef7re7" path="res://plots/plot_plowed_not_ready.png" id="4_sdgrm"]
 [ext_resource type="Script" path="res://plot_code/plowed.gd" id="5_80d4t"]
+[ext_resource type="Texture2D" uid="uid://37fjabwkjqe8" path="res://plots/plot_plowed_sapling.png" id="6_5i2kk"]
+[ext_resource type="Texture2D" uid="uid://x6kpjuc4n1kv" path="res://plots/plot_plowed_seeded.png" id="6_pnkbl"]
+[ext_resource type="Script" path="res://plot_code/Soil_State.gd" id="7_0yf42"]
+[ext_resource type="Texture2D" uid="uid://6dg6m0ijhv4a" path="res://plots/plot_plowed_watered.png" id="7_broiu"]
+[ext_resource type="Texture2D" uid="uid://cpxg20cd2qjux" path="res://plots/plot_plowed_watered_not_ready.png" id="8_1f4n2"]
+[ext_resource type="Texture2D" uid="uid://bya5kufx4fs5o" path="res://plots/plot_plowed_watered_sapling.png" id="9_oxqos"]
+[ext_resource type="Texture2D" uid="uid://x2n74gcl3n7v" path="res://plots/plot_plowed_watered_seeded.png" id="10_gpc3e"]
 [ext_resource type="Script" path="res://plot_code/state_machine.gd" id="12_n31cs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi0kt"]
@@ -21,16 +30,50 @@ wait_time = 0.2
 
 [node name="state_machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("12_n31cs")
-starting_state = NodePath("grass")
+starting_state = NodePath("plotGrass")
 
-[node name="grass" type="Node" parent="state_machine" node_paths=PackedStringArray("plot_plowed")]
+[node name="plotGrass" type="Node" parent="state_machine" node_paths=PackedStringArray("plot_plowed")]
 script = ExtResource("4_86uxc")
-plot_plowed = NodePath("../plowed")
+plot_plowed = NodePath("../plotPlowed")
 picture = ExtResource("1_fofen")
 
-[node name="plowed" type="Node" parent="state_machine"]
+[node name="plotPlowed" type="Node" parent="state_machine"]
 script = ExtResource("5_80d4t")
 picture = ExtResource("3_jd8jv")
+
+[node name="plotPlowedNotReady" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("4_sdgrm")
+
+[node name="plotPlowedReady" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("1_ilfcp")
+
+[node name="plotPlowedSapling" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("6_5i2kk")
+
+[node name="plotPlowedSeeded" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("6_pnkbl")
+
+[node name="plotPlowedWatered" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("7_broiu")
+
+[node name="plotPlowedWateredNotReady" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("8_1f4n2")
+grow_amount = 5
+
+[node name="plotPlowedWateredSapling" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("9_oxqos")
+grow_amount = 3
+
+[node name="plotPlowedWateredSeeded" type="Node" parent="state_machine"]
+script = ExtResource("7_0yf42")
+picture = ExtResource("10_gpc3e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fi0kt")
